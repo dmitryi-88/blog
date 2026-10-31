@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="confirmDeleteContainer">
+    <h1>Удаление публикации</h1>
+
+    <p>Вы действительно хотите удалить публикацию «{{ post.name }}»?</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <button type="submit">Удалить</button>
+        <a href="{% url 'blog:post_detail' post.pk %}">Отмена</a>
+    </form>
+</div>
+{% endblock %}

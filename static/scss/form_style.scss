@@ -3,7 +3,10 @@
 .registerContainer,
 .loginContainer,
 .resetPasswordContainer,
-.passwordResetConfirm {
+.passwordResetConfirm,
+.addCommentConatainer,
+.createPostContainer,
+.confirmDeleteContainer {
     display: flex;
     flex-direction: column;
     align-items: center;

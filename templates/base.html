@@ -13,11 +13,11 @@
 <body>
     <header>
         <div class="logoContainer">
-            <a class="gravitas-one-regular" href="#">Blogicum</a>
+            <a class="gravitas-one-regular" href="{% url 'blog:post_list' %}">Blogicum</a>
         </div>
 
         <nav>
-            <a class="" href="#">Лента записей</a>
+            <a class="" href="{% url 'blog:post_list' %}">Лента записей</a>
             <a class="" href="#">Поиск</a>
             <a class="" href="#">Авторы</a>
             <a class="" href="#">Категории</a>

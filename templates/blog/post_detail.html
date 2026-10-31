@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.name }}{% endblock %}
+
+{% block content %}
+<div class="postDetailContainer">
+    <article>
+        <h1>{{ post.name }}</h1>
+
+        <p>{{ post.describe }}</p>
+
+        {% if post.image %}
+        <img src="{{ post.image.url }}" alt="{{ post.name }}">
+        {% endif %}
+
+        <p>Категория: {{ post.category.name }}</p>
+
+        <p>
+            Авторы произведения:
+            {% for author in post.author.all %}
+            {{ author.name }}{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+
+        <p>Опубликовал: {{ post.writer.username }}</p>
+        <p>Дата публикации: {{ post.create_at }}</p>
+
+        <div>
+            {{ post.text|linebreaks }}
+        </div>
+
+        <div class="actions">
+            {% if user == post.writer %}
+            <a href="{% url 'blog:post_update' post.pk %}">
+                Редактировать публикацию
+            </a>
+            <a href="{% url 'blog:post_delete' post.pk %}">
+                Удалить публикацию
+            </a>
+            {% endif %}
+
+        </div>
+
+    </article>
+
+    <hr>
+
+    <h2>Комментарии</h2>
+
+    {% for comment in post.comments.all %}
+    <div>
+        <strong>{{ comment.writer.username }}</strong>
+        <p>{{ comment.text|linebreaks }}</p>
+        <small>{{ comment.create_at }}</small>
+    </div>
+    {% empty %}
+    <p>Комментариев пока нет.</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'blog:add_comment' post.pk %}">
+        Добавить комментарий
+    </a>
+    {% else %}
+    <p>
+        Чтобы оставить комментарий,
+        <a href="{% url 'login' %}">войдите в аккаунт</a>.
+    </p>
+    {% endif %}
+</div>
+{% endblock %}

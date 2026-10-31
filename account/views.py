@@ -58,8 +58,3 @@ def profile_edit(request):
     }
 
     return render(request, templ, context)
-
-
-def index(request):
-    templ = "base.html"
-    return render(request, templ)

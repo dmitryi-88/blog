@@ -1,0 +1,70 @@
+$bg-color: #ccd0cf;
+$text-color: #081c25;
+$main-color: #194669;
+
+$text-size: 18px;
+$mobile-text-size: 14px;
+
+@mixin hover-animation {
+    transform: translateY(5%);
+    box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.3);
+    background-color: $text-color;
+    color: $bg-color;
+}
+
+@mixin a-style {
+    font-size: $text-color;
+    text-decoration: none;
+    color: $text-color;
+
+    text-align: center;
+
+    transition: ease-in 0.2s;
+
+    &:hover {
+        @include hover-animation;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+@mixin input-style {
+    height: 25px;
+    border: 0;
+    border-radius: 6px;
+
+    text-align: center;
+    font-size: 15px;
+
+    background-color: $bg-color;
+    color: $text-color;
+}
+
+@mixin button-style {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 25px;
+    border: 0;
+    border-radius: 6px;
+    padding: 5px;
+
+    background-color: $main-color;
+    color: $bg-color;
+
+    transition: 0.2s;
+
+    &:hover {
+        transform: translateY(5%);
+        box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+        transform: scale(0.85);
+    }
+}

@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        <div class="logoContainer">
+            <a class="gravitas-one-regular" href="#">Blogicum</a>
+        </div>
+
+        <nav>
+            <a class="" href="#">Лента записей</a>
+            <a class="" href="#">Поиск</a>
+            <a class="" href="#">Авторы</a>
+            <a class="" href="#">Категории</a>
+        </nav>
+
+        <div class="authorization">
+            <a href="#">Войти</a>
+            <a href="#">Зарегестрироваться</a>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <span>© 2026 Blogicum. Все права защищены.</span>
+        <a href="https://github.com/dmitryi-88" target="_blank">github</a>
+        <a href="mailto:example@mail.com" target="_blank">Написать в поддержку</a>
+    </footer>
+</body>
+
+</html>

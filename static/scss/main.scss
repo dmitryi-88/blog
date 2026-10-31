@@ -1,0 +1,202 @@
+@use "variables" as *;
+@use "register";
+@import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+
+
+.gravitas-one-regular {
+    font-family: "Gravitas One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: "Nunito Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    background-color: $bg-color;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    border-radius: 6px;
+    padding: 3px;
+}
+
+.active {
+    background-color: $text-color;
+}
+
+header {
+    height: 10vh;
+    background: linear-gradient(145deg, $main-color, $main-color, $bg-color);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-sizing: border-box;
+
+    border-bottom-right-radius: 50px;
+
+    .logoContainer {
+        padding-left: 40px;
+
+        a {
+            font-size: 30px;
+            text-decoration: none;
+            color: $bg-color;
+            padding-right: 30px;
+        }
+    }
+
+    nav {
+        display: flex;
+        gap: 18px;
+        padding-right: 20px;
+
+        a {
+            text-decoration: none;
+            color: $bg-color;
+            font-size: $text-color;
+
+            text-align: center;
+
+            transition: ease-in 0.3s;
+
+            &:hover {
+                @include hover-animation;
+            }
+
+            &:active {
+                transform: scale(0.95);
+            }
+        }
+    }
+
+    .authorization {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+
+        a {
+            @include a-style;
+        }
+    }
+}
+
+main {
+    background-color: antiquewhite;
+    flex: 1;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+}
+
+footer {
+    height: 8vh;
+    background: linear-gradient(145deg, $bg-color, $bg-color, $main-color);
+
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+
+    border-top-left-radius: 50px;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-sizing: border-box;
+
+    a {
+        text-decoration: none;
+        color: $text-color;
+        font-size: 15px;
+
+        text-align: center;
+
+        transition: ease-in 0.2s;
+
+        &:hover {
+            @include hover-animation;
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    span {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 700px) {
+    header {
+        height: 10vh;
+        background-color: $main-color;
+
+        display: flex;
+        align-items: center;
+
+        border-bottom-right-radius: 30px;
+
+        .logoContainer {
+            padding-left: 25px;
+
+            a {
+                font-size: 18px;
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+            flex-shrink: 1;
+            flex-wrap: wrap;
+
+            a {
+                text-decoration: none;
+                color: $bg-color;
+                font-size: $mobile-text-size;
+            }
+        }
+
+        .authorization {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            a {
+                font-size: $mobile-text-size;
+            }
+        }
+    }
+
+    footer {
+        border-top-left-radius: 30px;
+        a {
+            text-decoration: none;
+            color: $text-color;
+            font-size: 12px;
+
+            text-align: center;
+        }
+
+        span {
+            font-size: 12px;
+        }
+    }
+}

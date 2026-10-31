@@ -1,7 +1,9 @@
 @use "variables" as *;
 
 .registerContainer,
-.loginContainer {
+.loginContainer,
+.resetPasswordContainer,
+.passwordResetConfirm {
     display: flex;
     flex-direction: column;
     align-items: center;

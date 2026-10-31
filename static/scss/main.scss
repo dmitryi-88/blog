@@ -1,7 +1,8 @@
 @use "variables" as *;
-@use "auth";
+@use "form_style.scss";
 @use 'profile_edit';
 @use 'profile';
+@use 'password_reset.scss';
 
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 

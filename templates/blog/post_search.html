@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Поиск{% endblock %}
+
+{% block content %}
+<div class="searchContainer">
+    <h1>Поиск публикаций</h1>
+
+    <form method="get">
+        <input type="search" name="q" placeholder="Введите название публикации" value="{{ query }}">
+
+        <button type="submit">Найти</button>
+    </form>
+
+    {% if query %}
+    <h2>Результаты поиска: {{ query }}</h2>
+
+    {% for post in posts %}
+    <article>
+        <h3>
+            <a href="{% url 'blog:post_detail' post.pk %}">
+                {{ post.name }}
+            </a>
+        </h3>
+
+        <p>{{ post.describe }}</p>
+    </article>
+    {% empty %}
+    <p>По вашему запросу ничего не найдено.</p>
+    {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

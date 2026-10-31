@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить автора{% endblock %}
+
+{% block content %}
+<div class="addAuthorContainer">
+    <h1>Добавить автора произведения</h1>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Добавить автора</button>
+    </form>
+</div>
+{% endblock %}

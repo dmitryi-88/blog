@@ -5,7 +5,10 @@
 .passwordResetConfirm,
 .addCommentConatainer,
 .createPostContainer,
-.confirmDeleteContainer {
+.confirmDeleteContainer,
+.addAuthorContainer,
+.confirmDeleteAuthorContainer,
+.searchContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +19,10 @@
 .passwordResetConfirm button,
 .addCommentConatainer button,
 .createPostContainer button,
-.confirmDeleteContainer button {
+.confirmDeleteContainer button,
+.addAuthorContainer button,
+.confirmDeleteAuthorContainer button,
+.searchContainer button {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -35,7 +41,10 @@
 .passwordResetConfirm button:hover,
 .addCommentConatainer button:hover,
 .createPostContainer button:hover,
-.confirmDeleteContainer button:hover {
+.confirmDeleteContainer button:hover,
+.addAuthorContainer button:hover,
+.confirmDeleteAuthorContainer button:hover,
+.searchContainer button:hover {
   transform: translateY(5%);
   box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.3);
 }
@@ -45,7 +54,10 @@
 .passwordResetConfirm button:active,
 .addCommentConatainer button:active,
 .createPostContainer button:active,
-.confirmDeleteContainer button:active {
+.confirmDeleteContainer button:active,
+.addAuthorContainer button:active,
+.confirmDeleteAuthorContainer button:active,
+.searchContainer button:active {
   transform: scale(0.85);
 }
 .registerContainer button,
@@ -54,7 +66,10 @@
 .passwordResetConfirm button,
 .addCommentConatainer button,
 .createPostContainer button,
-.confirmDeleteContainer button {
+.confirmDeleteContainer button,
+.addAuthorContainer button,
+.confirmDeleteAuthorContainer button,
+.searchContainer button {
   width: 60%;
 }
 .registerContainer a,
@@ -63,7 +78,10 @@
 .passwordResetConfirm a,
 .addCommentConatainer a,
 .createPostContainer a,
-.confirmDeleteContainer a {
+.confirmDeleteContainer a,
+.addAuthorContainer a,
+.confirmDeleteAuthorContainer a,
+.searchContainer a {
   font-size: #081c25;
   text-decoration: none;
   color: #081c25;
@@ -76,7 +94,10 @@
 .passwordResetConfirm a:hover,
 .addCommentConatainer a:hover,
 .createPostContainer a:hover,
-.confirmDeleteContainer a:hover {
+.confirmDeleteContainer a:hover,
+.addAuthorContainer a:hover,
+.confirmDeleteAuthorContainer a:hover,
+.searchContainer a:hover {
   transform: translateY(5%);
   box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.3);
   background-color: #081c25;
@@ -88,7 +109,10 @@
 .passwordResetConfirm a:active,
 .addCommentConatainer a:active,
 .createPostContainer a:active,
-.confirmDeleteContainer a:active {
+.confirmDeleteContainer a:active,
+.addAuthorContainer a:active,
+.confirmDeleteAuthorContainer a:active,
+.searchContainer a:active {
   transform: scale(0.95);
 }
 .registerContainer a,
@@ -97,7 +121,10 @@
 .passwordResetConfirm a,
 .addCommentConatainer a,
 .createPostContainer a,
-.confirmDeleteContainer a {
+.confirmDeleteContainer a,
+.addAuthorContainer a,
+.confirmDeleteAuthorContainer a,
+.searchContainer a {
   color: #194669;
 }
 .registerContainer span,
@@ -113,7 +140,13 @@
 .createPostContainer span,
 .createPostContainer li,
 .confirmDeleteContainer span,
-.confirmDeleteContainer li {
+.confirmDeleteContainer li,
+.addAuthorContainer span,
+.addAuthorContainer li,
+.confirmDeleteAuthorContainer span,
+.confirmDeleteAuthorContainer li,
+.searchContainer span,
+.searchContainer li {
   font-size: 13px;
 }
 .registerContainer form,
@@ -122,7 +155,10 @@
 .passwordResetConfirm form,
 .addCommentConatainer form,
 .createPostContainer form,
-.confirmDeleteContainer form {
+.confirmDeleteContainer form,
+.addAuthorContainer form,
+.confirmDeleteAuthorContainer form,
+.searchContainer form {
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -134,7 +170,10 @@
 .passwordResetConfirm form p,
 .addCommentConatainer form p,
 .createPostContainer form p,
-.confirmDeleteContainer form p {
+.confirmDeleteContainer form p,
+.addAuthorContainer form p,
+.confirmDeleteAuthorContainer form p,
+.searchContainer form p {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -148,7 +187,10 @@
 .passwordResetConfirm form p label,
 .addCommentConatainer form p label,
 .createPostContainer form p label,
-.confirmDeleteContainer form p label {
+.confirmDeleteContainer form p label,
+.addAuthorContainer form p label,
+.confirmDeleteAuthorContainer form p label,
+.searchContainer form p label {
   font-weight: 600;
 }
 .registerContainer form p input,
@@ -157,7 +199,10 @@
 .passwordResetConfirm form p input,
 .addCommentConatainer form p input,
 .createPostContainer form p input,
-.confirmDeleteContainer form p input {
+.confirmDeleteContainer form p input,
+.addAuthorContainer form p input,
+.confirmDeleteAuthorContainer form p input,
+.searchContainer form p input {
   width: 100%;
   height: 25px;
   border: 0;

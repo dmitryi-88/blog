@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Категории{% endblock %}
+
+{% block content %}
+<div class="categoryListContainer">
+    <h1>Категории</h1>
+
+    {% for category in categories %}
+    <article>
+        <h2>
+            <a href="{% url 'blog:category_detail' category.pk %}">
+                {{ category.name }}
+            </a>
+        </h2>
+
+        {% if category.describe %}
+        <p>{{ category.describe }}</p>
+        {% endif %}
+
+        <p>Количество публикаций: {{ category.posts.count }}</p>
+    </article>
+    {% empty %}
+    <p>Категорий пока нет.</p>
+    {% endfor %}
+
+    {% if is_paginated %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
+        {% endif %}
+
+        <span>
+            {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+        </span>
+
+        {% if page_obj.has_next %}
+        <a href="?page={{ page_obj.next_page_number }}">Вперёд</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

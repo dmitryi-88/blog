@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Список авторов{% endblock %}
+
+{% block content %}
+<div class="authorsListContainer">
+    <h1>Авторы произведений</h1>
+
+    {% if user.is_authenticated %}
+    <a href="{% url 'blog:author_create' %}">
+        Добавить автора
+    </a>
+    {% endif %}
+
+    {% for author in authors %}
+    <article>
+        <h2>
+            <a href="{% url 'blog:author_detail' author.pk %}">
+                {{ author.name }}
+            </a>
+        </h2>
+
+        {% if author.image %}
+        <img src="{{ author.image.url }}" alt="{{ author.name }}">
+        {% endif %}
+
+        {% if author.birthday %}
+        <p>Дата рождения: {{ author.birthday }}</p>
+        {% endif %}
+
+        <p>{{ author.biography|truncatewords:30 }}</p>
+
+        <p>Количество публикаций: {{ author.posts.count }}</p>
+    </article>
+    {% empty %}
+    <p>Авторы пока не добавлены.</p>
+    {% endfor %}
+</div>
+
+{% if is_paginated %}
+<div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
+    {% endif %}
+
+    <span>
+        {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}
+    </span>
+
+    {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Вперёд</a>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

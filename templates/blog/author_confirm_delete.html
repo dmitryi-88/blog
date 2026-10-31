@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="confirmDeleteAuthorContainer">
+    <h1>Удаление автора</h1>
+
+    <p>
+        Вы действительно хотите удалить автора
+        «{{ author.name }}»?
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <button type="submit">Удалить</button>
+
+        <a href="{% url 'blog:author_detail' author.pk %}">
+            Отмена
+        </a>
+    </form>
+</div>
+{% endblock %}

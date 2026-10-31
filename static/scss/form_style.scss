@@ -6,7 +6,10 @@
 .passwordResetConfirm,
 .addCommentConatainer,
 .createPostContainer,
-.confirmDeleteContainer {
+.confirmDeleteContainer,
+.addAuthorContainer,
+.confirmDeleteAuthorContainer,
+.searchContainer {
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}{{ author.name }}{% endblock %}
+
+{% block content %}
+<div class="authorDetailContainer">
+    <h1>{{ author.name }}</h1>
+
+    {% if author.image %}
+    <img src="{{ author.image.url }}" alt="{{ author.name }}">
+    {% endif %}
+
+    {% if author.birthday %}
+    <p>Дата рождения: {{ author.birthday }}</p>
+    {% endif %}
+
+    {% if author.biography %}
+    <div>{{ author.biography|linebreaks }}</div>
+    {% endif %}
+
+    {% if user == author.writer %}
+    <a href="{% url 'blog:author_update' author.pk %}">
+        Редактировать автора
+    </a>
+
+    <a href="{% url 'blog:author_delete' author.pk %}">
+        Удалить автора
+    </a>
+    {% endif %}
+
+    <h2>Публикации с этим автором</h2>
+
+    {% for post in author.posts.all %}
+    <article>
+        <h3>
+            <a href="{% url 'blog:post_detail' post.pk %}">
+                {{ post.name }}
+            </a>
+        </h3>
+        <p>{{ post.describe }}</p>
+    </article>
+    {% empty %}
+    <p>Публикаций пока нет.</p>
+    {% endfor %}
+</div>
+{% endblock %}

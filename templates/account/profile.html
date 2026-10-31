@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block content %}
+
+<div class="profileContainer">
+    <h1>Личный профиль</h1>
+
+    <div class="profileInfo">
+        <div class="avatar">
+            {% if user.profile.avatar %}
+            <img src="{{ user.profile.avatar.url }}" alt="Аватар пользователя">
+            {% else %}
+            <p>Аватар не загружен</p>
+            {% endif %}
+        </div>
+
+        <div class="info">
+            <p><strong>login:</strong> {{ user.username }}</p>
+            <p><strong>email:</strong> {{ user.email }}</p>
+            {% if user.first_name %}
+            <p><strong>Имя:</strong> {{ user.first_name }}</p>
+            {% endif %}
+            {% if user.last_name %}
+            <p><strong>Фамилия:</strong> {{ user.last_name }}</p>
+            {% endif %}
+            {% if user.profile.info %}
+            <p><strong>О себе: </strong><i>{{ user.profile.info }}</i></p>
+            {% else %}
+            <p><strong>Информация отсутствует</strong></p>
+            {% endif %}
+            <p><strong>Дата регистрации:</strong> {{ user.date_joined|date:"d.m.Y" }}</p>
+            <p><strong>Последний вход:</strong> {{ user.last_login|date:"d.m.Y H:i" }}</p>
+        </div>
+    </div>
+
+    <a href="{% url 'profile_edit' %}">Редактировать профиль</a>
+</div>
+
+{% endblock %}

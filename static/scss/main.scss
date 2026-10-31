@@ -1,5 +1,7 @@
 @use "variables" as *;
 @use "auth";
+@use 'profile_edit';
+@use 'profile';
 
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
@@ -92,11 +94,6 @@ header {
 
         a {
             @include a-style;
-        }
-
-        span {
-            font-size: 18px;
-            font-weight: 600;
         }
 
         form {

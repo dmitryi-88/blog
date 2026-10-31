@@ -1,0 +1,45 @@
+@use "variables" as *;
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+
+    a {
+        @include a-style;
+        color: $main-color;
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .profileInfo {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 20px;
+
+        .avatar {
+            width: 50%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 100%;
+                max-width: 350px;
+            }
+        }
+
+        .info {
+            width: 50%;
+
+            p {
+                color: $text-color;
+            }
+        }
+    }
+}

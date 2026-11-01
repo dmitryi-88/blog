@@ -4,68 +4,79 @@
 
 {% block content %}
 <div class="postDetailContainer">
-    <article>
-        <h1>{{ post.name }}</h1>
+    <div class="wrapper">
+        <article>
+            <h1>{{ post.name }}</h1>
+            <div class="head">
+                <div class="imagePost">
+                    {% if post.image %}
+                    <img src="{{ post.image.url }}" alt="{{ post.name }}">
+                    {% endif %}
+                </div>
 
-        <p>{{ post.describe }}</p>
+                <div class="description">
+                    <p>{{ post.describe }}</p>
+                </div>
+            </div>
 
-        {% if post.image %}
-        <img src="{{ post.image.url }}" alt="{{ post.name }}">
-        {% endif %}
+            <div class="info">
+                <p><strong>Категория:</strong> {{ post.category.name }}</p>
 
-        <p>Категория: {{ post.category.name }}</p>
+                <p>
+                    <strong>Авторы произведения:</strong>
+                    {% for author in post.author.all %}
+                    {{ author.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
 
-        <p>
-            Авторы произведения:
-            {% for author in post.author.all %}
-            {{ author.name }}{% if not forloop.last %}, {% endif %}
+                <p><strong>Опубликовал:</strong> {{ post.writer.username }}</p>
+                <p><strong>Дата публикации:</strong> {{ post.create_at }}</p>
+
+                <div>
+                    <i>{{ post.text|linebreaks }}</i>
+                </div>
+            </div>
+
+            <div class="actions">
+                {% if user == post.writer %}
+                <a href="{% url 'blog:post_update' post.pk %}">
+                    Редактировать публикацию
+                </a>
+                <a href="{% url 'blog:post_delete' post.pk %}">
+                    Удалить публикацию
+                </a>
+                {% endif %}
+
+            </div>
+
+        </article>
+
+        <hr>
+
+        <div class="comments">
+            <h2>Комментарии</h2>
+
+            {% for comment in post.comments.all %}
+            <div class="comment">
+                <span><strong>Пользователь:</strong> {{ comment.writer.username }}</span>
+                <span><strong>Комментарий:</strong> <i>{{ comment.text }}</i></span>
+                <small>{{ comment.create_at }}</small>
+            </div>
+            {% empty %}
+            <p>Комментариев пока нет.</p>
             {% endfor %}
-        </p>
 
-        <p>Опубликовал: {{ post.writer.username }}</p>
-        <p>Дата публикации: {{ post.create_at }}</p>
-
-        <div>
-            {{ post.text|linebreaks }}
-        </div>
-
-        <div class="actions">
-            {% if user == post.writer %}
-            <a href="{% url 'blog:post_update' post.pk %}">
-                Редактировать публикацию
+            {% if user.is_authenticated %}
+            <a href="{% url 'blog:add_comment' post.pk %}">
+                Добавить комментарий
             </a>
-            <a href="{% url 'blog:post_delete' post.pk %}">
-                Удалить публикацию
-            </a>
+            {% else %}
+            <p>
+                Чтобы оставить комментарий,
+                <a href="{% url 'login' %}">войдите в аккаунт</a>.
+            </p>
             {% endif %}
-
         </div>
-
-    </article>
-
-    <hr>
-
-    <h2>Комментарии</h2>
-
-    {% for comment in post.comments.all %}
-    <div>
-        <strong>{{ comment.writer.username }}</strong>
-        <p>{{ comment.text|linebreaks }}</p>
-        <small>{{ comment.create_at }}</small>
     </div>
-    {% empty %}
-    <p>Комментариев пока нет.</p>
-    {% endfor %}
-
-    {% if user.is_authenticated %}
-    <a href="{% url 'blog:add_comment' post.pk %}">
-        Добавить комментарий
-    </a>
-    {% else %}
-    <p>
-        Чтобы оставить комментарий,
-        <a href="{% url 'login' %}">войдите в аккаунт</a>.
-    </p>
-    {% endif %}
 </div>
 {% endblock %}

@@ -5,29 +5,33 @@
 {% block content %}
 <div class="searchContainer">
     <h1>Поиск публикаций</h1>
+    <div class="searchBar">
 
-    <form method="get">
-        <input type="search" name="q" placeholder="Введите название публикации" value="{{ query }}">
+        <form method="get">
+            <input type="search" name="q" placeholder="Введите название публикации" value="{{ query }}">
 
-        <button type="submit">Найти</button>
-    </form>
+            <button type="submit">Найти</button>
+        </form>
+    </div>
 
     {% if query %}
-    <h2>Результаты поиска: {{ query }}</h2>
 
-    {% for post in posts %}
-    <article>
-        <h3>
-            <a href="{% url 'blog:post_detail' post.pk %}">
-                {{ post.name }}
-            </a>
-        </h3>
+    <h2><i>Результаты поиска: "{{ query }}"</i></h2>
+    <div class="searchResult">
+        {% for post in posts %}
+        <article>
+            <h3>
+                <a href="{% url 'blog:post_detail' post.pk %}">
+                    {{ post.name }}
+                </a>
+            </h3>
 
-        <p>{{ post.describe }}</p>
-    </article>
-    {% empty %}
-    <p>По вашему запросу ничего не найдено.</p>
-    {% endfor %}
-    {% endif %}
+            <p><i>{{ post.describe }}</i></p>
+        </article>
+        {% empty %}
+        <p>По вашему запросу ничего не найдено.</p>
+        {% endfor %}
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

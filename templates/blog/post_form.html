@@ -2,14 +2,22 @@
 {% block title %}Создание публикации{% endblock %}
 {% block content %}
 <div class="createPostContainer">
+    {% if post %}
+    <h1>Редактировать публикацию</h1>
+    {% else %}
     <h1>Создать публикацию</h1>
+    {% endif %}
 
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
 
         {{ form.as_p }}
 
+        {% if post %}
+        <button type="submit">Сохранить изменения</button>
+        {% else %}
         <button type="submit">Опубликовать</button>
+        {% endif %}
     </form>
 </div>
 {% endblock %}

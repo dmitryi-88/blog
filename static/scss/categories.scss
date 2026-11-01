@@ -1,0 +1,88 @@
+@use "variables" as *;
+
+.categoryListContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .categories {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        padding: 20px;
+        gap: 20px;
+
+        article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            width: 80%;
+            box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
+            border-radius: 6px;
+        }
+
+        a {
+            @include a-style;
+            color: $main-color;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .count {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
+
+.categoryDetailContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+
+    .describe {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 80%;
+        padding: 10px;
+
+        box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+    }
+
+    .articles {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        article {
+            width: 80%;
+
+            border-radius: 6px;
+            box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.3);
+            padding: 10px;
+
+            .date {
+                text-align: start;
+            }
+        }
+    }
+
+    p {
+        text-align: center;
+    }
+
+    a {
+        @include a-style;
+        color: $main-color;
+    }
+}

@@ -12,29 +12,37 @@
     </a>
     {% endif %}
 
-    {% for author in authors %}
-    <article>
-        <h2>
-            <a href="{% url 'blog:author_detail' author.pk %}">
-                {{ author.name }}
-            </a>
-        </h2>
+    <div class="wrapper">
+        {% for author in authors %}
+        <article>
+            <h2>
+                <a href="{% url 'blog:author_detail' author.pk %}">
+                    {{ author.name }}
+                </a>
+            </h2>
 
-        {% if author.image %}
-        <img src="{{ author.image.url }}" alt="{{ author.name }}">
-        {% endif %}
+            <div class="aboutAuthor">
+                <div class="image">
+                    {% if author.image %}
+                    <img src="{{ author.image.url }}" alt="{{ author.name }}">
+                    {% endif %}
+                </div>
 
-        {% if author.birthday %}
-        <p>Дата рождения: {{ author.birthday }}</p>
-        {% endif %}
+                <div class="info">
+                    {% if author.birthday %}
+                    <p><strong>Дата рождения:</strong> {{ author.birthday }}</p>
+                    {% endif %}
 
-        <p>{{ author.biography|truncatewords:30 }}</p>
+                    <p><strong>Биография:</strong> <i>{{ author.biography }}</i></p>
 
-        <p>Количество публикаций: {{ author.posts.count }}</p>
-    </article>
-    {% empty %}
-    <p>Авторы пока не добавлены.</p>
-    {% endfor %}
+                    <p><strong>Количество публикаций: {{ author.posts.count }}</strong></p>
+                </div>
+            </div>
+        </article>
+        {% empty %}
+        <p>Авторы пока не добавлены.</p>
+        {% endfor %}
+    </div>
 </div>
 
 {% if is_paginated %}

@@ -2,29 +2,33 @@
 {% block title %}{{ category.name }}{% endblock %}
 {% block content %}
 <div class="categoryDetailContainer">
-    <h1>{{ category.name }}</h1>
+    <div class="describe">
+        <h1>{{ category.name }}</h1>
 
-    {% if category.describe %}
-    <p>{{ category.describe }}</p>
-    {% endif %}
+        {% if category.describe %}
+        <p><i>{{ category.describe }}</i></p>
+        {% endif %}
+    </div>
 
-    <h2>Публикации в категории</h2>
+    <h2>Публикации в категории:</h2>
 
-    {% for post in category.posts.all %}
-    {% if post.is_published %}
-    <article>
-        <h3>
-            <a href="{% url 'blog:post_detail' post.pk %}">
-                {{ post.name }}
-            </a>
-        </h3>
+    <div class="articles">
+        {% for post in category.posts.all %}
+        {% if post.is_published %}
+        <article>
+            <h3>
+                <a href="{% url 'blog:post_detail' post.pk %}">
+                    {{ post.name }}
+                </a>
+            </h3>
 
-        <p>{{ post.describe }}</p>
-        <p>{{ post.create_at }}</p>
-    </article>
-    {% endif %}
-    {% empty %}
-    <p>В этой категории пока нет публикаций.</p>
-    {% endfor %}
+            <p><i>{{ post.describe }}</i></p>
+            <p class="date"><strong>{{ post.create_at }}</strong></p>
+        </article>
+        {% endif %}
+        {% empty %}
+        <p>В этой категории пока нет публикаций.</p>
+        {% endfor %}
+    </div>
 </div>
 {% endblock %}

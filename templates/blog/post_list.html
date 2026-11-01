@@ -5,32 +5,38 @@
 {% block content %}
 
 <div class="postListContainer">
-    <h1>Публикации</h1>
+    <div class="wrapper">
+        <div class="listHead">
+            <h1>Публикации</h1>
 
-    {% if user.is_authenticated %}
-    <a href="{% url 'blog:post_create' %}">Создать публикацию</a>
-    {% endif %}
+            {% if user.is_authenticated %}
+            <a href="{% url 'blog:post_create' %}">Создать публикацию</a>
+            {% endif %}
+        </div>
 
-    {% for post in posts %}
-    <article>
-        <h2>
-            <a href="{% url 'blog:post_detail' post.pk %}">
-                {{ post.name }}
-            </a>
-        </h2>
-        <p>{{ post.describe }}</p>
-        <p>Категория: {{ post.category.name }}</p>
-        <p>Авторы произведения:
-            {% for author in post.author.all %}
-            {{ author.name }}
-            {% if not forloop.last %}, {% endif %}
+        <div class="articles">
+            {% for post in posts %}
+            <article>
+                <h2>
+                    <a href="{% url 'blog:post_detail' post.pk %}">
+                        {{ post.name }}
+                    </a>
+                </h2>
+                <p><i>{{ post.describe }}</i></p>
+                <p><strong>Категория:</strong> {{ post.category.name }}</p>
+                <p><strong>Авторы произведения:</strong>
+                    {% for author in post.author.all %}
+                    {{ author.name }}
+                    {% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p><strong>Дата написания поста:</strong> {{ post.create_at }}</p>
+            </article>
+            {% empty %}
+            <p>Публикаций пока нет.</p>
             {% endfor %}
-        </p>
-        <p>{{ post.create_at }}</p>
-    </article>
-    {% empty %}
-    <p>Публикаций пока нет.</p>
-    {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% if is_paginated %}

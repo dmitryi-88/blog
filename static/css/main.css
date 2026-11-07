@@ -346,6 +346,7 @@
 .profileContainer .profileInfo .avatar img {
   width: 100%;
   max-width: 350px;
+  border-radius: 20px;
 }
 .profileContainer .profileInfo .info {
   width: 50%;
@@ -923,7 +924,7 @@ footer span {
     padding-left: 25px;
   }
   header .logoContainer a {
-    font-size: 18px;
+    font-size: 15px;
   }
   header nav {
     display: flex;

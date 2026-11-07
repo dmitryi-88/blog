@@ -67,12 +67,6 @@ BookSpace — веб-приложение на Django для публикаци�
 3. Установить зависимости:
 
    ```bash
-   pip install Django python-dotenv Pillow
-   ```
-
-   После установки зафиксировать фактические версии окружения:
-
-   ```bash
    pip freeze > requirements.txt
    ```
 

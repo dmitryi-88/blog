@@ -204,6 +204,7 @@
 .confirmDeleteAuthorContainer form p input,
 .searchContainer form p input {
   width: 100%;
+  min-height: 40px;
   height: 25px;
   border: 0;
   border-radius: 6px;
@@ -211,6 +212,124 @@
   font-size: 15px;
   background-color: #ccd0cf;
   color: #081c25;
+}
+.registerContainer form textarea,
+.loginContainer form textarea,
+.resetPasswordContainer form textarea,
+.passwordResetConfirm form textarea,
+.addCommentConatainer form textarea,
+.createPostContainer form textarea,
+.confirmDeleteContainer form textarea,
+.addAuthorContainer form textarea,
+.confirmDeleteAuthorContainer form textarea,
+.searchContainer form textarea {
+  width: 96%;
+  font-family: cursive;
+  padding: 15px;
+}
+.registerContainer form select,
+.loginContainer form select,
+.resetPasswordContainer form select,
+.passwordResetConfirm form select,
+.addCommentConatainer form select,
+.createPostContainer form select,
+.confirmDeleteContainer form select,
+.addAuthorContainer form select,
+.confirmDeleteAuthorContainer form select,
+.searchContainer form select {
+  background-color: #f5eee6;
+  color: #081c25;
+  border: 1px solid #d5c5b5;
+  border-radius: 8px;
+  padding: 10px 14px;
+  outline: none;
+}
+.registerContainer form select:focus,
+.loginContainer form select:focus,
+.resetPasswordContainer form select:focus,
+.passwordResetConfirm form select:focus,
+.addCommentConatainer form select:focus,
+.createPostContainer form select:focus,
+.confirmDeleteContainer form select:focus,
+.addAuthorContainer form select:focus,
+.confirmDeleteAuthorContainer form select:focus,
+.searchContainer form select:focus {
+  border-color: #1f3a5f;
+  box-shadow: 0 0 0 3px rgba(31, 58, 95, 0.12);
+}
+.registerContainer form select option,
+.loginContainer form select option,
+.resetPasswordContainer form select option,
+.passwordResetConfirm form select option,
+.addCommentConatainer form select option,
+.createPostContainer form select option,
+.confirmDeleteContainer form select option,
+.addAuthorContainer form select option,
+.confirmDeleteAuthorContainer form select option,
+.searchContainer form select option {
+  background-color: #f5eee6;
+  color: #081c25;
+}
+.registerContainer form select option:checked,
+.loginContainer form select option:checked,
+.resetPasswordContainer form select option:checked,
+.passwordResetConfirm form select option:checked,
+.addCommentConatainer form select option:checked,
+.createPostContainer form select option:checked,
+.confirmDeleteContainer form select option:checked,
+.addAuthorContainer form select option:checked,
+.confirmDeleteAuthorContainer form select option:checked,
+.searchContainer form select option:checked {
+  background: #194669;
+  color: #ffffff;
+}
+.registerContainer form input[type=file],
+.loginContainer form input[type=file],
+.resetPasswordContainer form input[type=file],
+.passwordResetConfirm form input[type=file],
+.addCommentConatainer form input[type=file],
+.createPostContainer form input[type=file],
+.confirmDeleteContainer form input[type=file],
+.addAuthorContainer form input[type=file],
+.confirmDeleteAuthorContainer form input[type=file],
+.searchContainer form input[type=file] {
+  color: #081c25;
+  font-family: inherit;
+  font-size: 14px;
+}
+.registerContainer form input[type=file]::file-selector-button,
+.loginContainer form input[type=file]::file-selector-button,
+.resetPasswordContainer form input[type=file]::file-selector-button,
+.passwordResetConfirm form input[type=file]::file-selector-button,
+.addCommentConatainer form input[type=file]::file-selector-button,
+.createPostContainer form input[type=file]::file-selector-button,
+.confirmDeleteContainer form input[type=file]::file-selector-button,
+.addAuthorContainer form input[type=file]::file-selector-button,
+.confirmDeleteAuthorContainer form input[type=file]::file-selector-button,
+.searchContainer form input[type=file]::file-selector-button {
+  height: 100%;
+  text-align: center;
+  background-color: #194669;
+  color: #ccd0cf;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  opacity: 1;
+}
+.registerContainer form input[type=file]::file-selector-button:hover,
+.loginContainer form input[type=file]::file-selector-button:hover,
+.resetPasswordContainer form input[type=file]::file-selector-button:hover,
+.passwordResetConfirm form input[type=file]::file-selector-button:hover,
+.addCommentConatainer form input[type=file]::file-selector-button:hover,
+.createPostContainer form input[type=file]::file-selector-button:hover,
+.confirmDeleteContainer form input[type=file]::file-selector-button:hover,
+.addAuthorContainer form input[type=file]::file-selector-button:hover,
+.confirmDeleteAuthorContainer form input[type=file]::file-selector-button:hover,
+.searchContainer form input[type=file]::file-selector-button:hover {
+  opacity: 0.9;
 }
 
 .profileEditContainer {
@@ -226,8 +345,9 @@
   width: 50%;
 }
 .profileEditContainer textarea {
-  border-radius: 8px;
-  background-color: #ccd0cf;
+  width: 96%;
+  font-family: cursive;
+  padding: 15px;
 }
 .profileEditContainer button {
   cursor: pointer;
@@ -301,6 +421,28 @@
   font-size: 15px;
   background-color: #ccd0cf;
   color: #081c25;
+  min-height: 40px;
+}
+.profileEditContainer form input[type=file] {
+  color: #081c25;
+  font-family: inherit;
+  font-size: 14px;
+}
+.profileEditContainer form input[type=file]::file-selector-button {
+  height: 100%;
+  text-align: center;
+  background-color: #194669;
+  color: #ccd0cf;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  opacity: 1;
+}
+.profileEditContainer form input[type=file]::file-selector-button:hover {
+  opacity: 0.9;
 }
 
 .profileContainer {
@@ -338,6 +480,7 @@
 }
 .profileContainer .profileInfo .avatar {
   width: 50%;
+  padding-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -350,6 +493,7 @@
 }
 .profileContainer .profileInfo .info {
   width: 50%;
+  padding-right: 20px;
 }
 .profileContainer .profileInfo .info p {
   color: #081c25;

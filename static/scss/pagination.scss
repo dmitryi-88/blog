@@ -1,0 +1,27 @@
+@use "variables" as *;
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 25px 10px;
+
+    a {
+        @include a-style;
+
+        background-color: $main-color;
+        color: $bg-color;
+
+        padding: 8px 14px;
+        border-radius: 6px;
+    }
+
+    .currentPage {
+        color: $text-color;
+        font-weight: 700;
+        padding: 8px 12px;
+    }
+}

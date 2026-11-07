@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Профиль {{ profile_user.username }}{% endblock %}
+
+{% block content %}
+
+<div class="profileContainer">
+    <h1>Профиль пользователя {{ profile_user.username }}</h1>
+
+    <div class="profileInfo">
+        <div class="avatar">
+            {% if profile and profile.avatar %}
+                <img src="{{ profile.avatar.url }}" alt="Аватар пользователя">
+            {% else %}
+                <p>Аватар не загружен</p>
+            {% endif %}
+        </div>
+
+        <div class="info">
+            {% if profile_user.first_name %}
+                <p><strong>Имя:</strong> {{ profile_user.first_name }}</p>
+            {% endif %}
+
+            {% if profile_user.last_name %}
+                <p><strong>Фамилия:</strong> {{ profile_user.last_name }}</p>
+            {% endif %}
+
+            {% if profile and profile.info %}
+                <p><strong>О себе:</strong> <i>{{ profile.info }}</i></p>
+            {% else %}
+                <p>Информация отсутствует.</p>
+            {% endif %}
+
+            <p>
+                <strong>Дата регистрации:</strong>
+                {{ profile_user.date_joined|date:"d.m.Y" }}
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

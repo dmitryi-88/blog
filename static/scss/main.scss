@@ -7,6 +7,7 @@
 @use 'search';
 @use 'post.scss';
 @use 'authors';
+@use "pagination";
 
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
@@ -161,7 +162,7 @@ footer {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 875px) {
     header {
         height: 10vh;
         background-color: $main-color;
@@ -197,6 +198,8 @@ footer {
             flex-direction: column;
             align-items: center;
 
+            padding-right: 10px;
+
             a {
                 font-size: $mobile-text-size;
             }
@@ -206,6 +209,7 @@ footer {
     footer {
         border-top-left-radius: 30px;
         a {
+            margin-right: 10px;
             text-decoration: none;
             color: $text-color;
             font-size: 12px;
@@ -214,6 +218,7 @@ footer {
         }
 
         span {
+            margin-left: 10px;
             font-size: 12px;
         }
     }

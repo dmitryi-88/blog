@@ -23,13 +23,22 @@
                 <p><strong>Категория:</strong> {{ post.category.name }}</p>
 
                 <p>
-                    <strong>Авторы произведения:</strong>
+                    <strong>Автор произведения:</strong>
                     {% for author in post.author.all %}
-                    {{ author.name }}{% if not forloop.last %}, {% endif %}
+                    <a href="{% url 'blog:author_detail' pk=author.pk %}">
+                        {{ author.name }}
+                    </a>{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                    Не указан
                     {% endfor %}
                 </p>
 
-                <p><strong>Опубликовал:</strong> {{ post.writer.username }}</p>
+                <p>
+                    <strong>Опубликовал:</strong>
+                    <a href="{% url 'public_profile' username=post.writer.username %}">
+                        {{ post.writer.username }}
+                    </a>
+                </p>
                 <p><strong>Дата публикации:</strong> {{ post.create_at }}</p>
 
                 <div>
@@ -58,7 +67,12 @@
 
             {% for comment in post.comments.all %}
             <div class="comment">
-                <span><strong>Пользователь:</strong> {{ comment.writer.username }}</span>
+                <span>
+                    <strong>Пользователь:</strong>
+                    <a href="{% url 'public_profile' comment.writer.username %}">
+                        {{ comment.writer.username }}
+                    </a>
+                </span>
                 <span><strong>Комментарий:</strong> <i>{{ comment.text }}</i></span>
                 <small>{{ comment.create_at }}</small>
             </div>

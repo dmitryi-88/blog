@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 from .forms import RegisterForm, ProfileUpdateForm, UserProfileForm
 from .models import UserProfile
@@ -56,5 +58,23 @@ def profile_edit(request):
         "user_form": user_form,
         "profile_form": profile_form,
     }
+
+    return render(request, templ, context)
+
+
+def public_profile(request, username):
+    profile_user = get_object_or_404(
+        User.objects.select_related('profile'),
+        username=username,
+    )
+
+    user_profile = getattr(profile_user, 'profile', None)
+
+    context = {
+        'profile_user': profile_user,
+        'profile': user_profile
+    }
+
+    templ = 'account/public_profile.html'
 
     return render(request, templ, context)

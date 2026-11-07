@@ -1,7 +1,7 @@
 from typing import Any
 
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import (
     ListView,
     DetailView,
@@ -20,7 +20,7 @@ class PostListView(ListView):
     model = Post
     template_name = "blog/post_list.html"
     context_object_name = "posts"
-    paginate_by = 5
+    paginate_by = 4
 
     def get_queryset(self):
         return (
@@ -105,7 +105,7 @@ class AuthorListView(ListView):
     model = Author
     template_name = "blog/author_list.html"
     context_object_name = "authors"
-    paginate_by = 10
+    paginate_by = 4
 
     def get_queryset(self):
         return Author.objects.prefetch_related("posts").order_by("name")
@@ -181,7 +181,7 @@ class CategoryListView(ListView):
     model = Category
     template_name = "blog/category_list.html"
     context_object_name = "categories"
-    paginate_by = 10
+    paginate_by = 4
 
     def get_queryset(self):
         return Category.objects.order_by("name")

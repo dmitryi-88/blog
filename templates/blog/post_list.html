@@ -24,10 +24,14 @@
                 </h2>
                 <p><i>{{ post.describe }}</i></p>
                 <p><strong>Категория:</strong> {{ post.category.name }}</p>
-                <p><strong>Авторы произведения:</strong>
+                <p>
+                    <strong>Автор произведения:</strong>
                     {% for author in post.author.all %}
-                    {{ author.name }}
-                    {% if not forloop.last %}, {% endif %}
+                    <a href="{% url 'blog:author_detail' pk=author.pk %}">
+                        {{ author.name }}
+                    </a>{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                    Не указан
                     {% endfor %}
                 </p>
                 <p><strong>Дата написания поста:</strong> {{ post.create_at }}</p>
@@ -39,22 +43,6 @@
     </div>
 </div>
 
-{% if is_paginated %}
-<div class="pagination">
-    {% if page_obj.has_previous %}
-    <a href="?page=1">Первая</a>
-    <a href="?page={{ page_obj.previous_page_number }}">Назад</a>
-    {% endif %}
-
-    <span>
-        Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}
-    </span>
-
-    {% if page_obj.has_next %}
-    <a href="?page={{ page_obj.next_page_number }}">Вперёд</a>
-    <a href="?page={{ page_obj.paginator.num_pages }}">Последняя</a>
-    {% endif %}
-</div>
-{% endif %}
+{% include "includes/pagination.html" %}
 
 {% endblock %}
